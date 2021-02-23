@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bizflow</groupId>
+    <artifactId>bizauth</artifactId>
+    <version>1.2.1</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <httpclient.version>4.5.6</httpclient.version>
+        <spring-security-saml2-core.version>1.0.9.RELEASE</spring-security-saml2-core.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <modules>
+        <module>bizauthsaml-common</module>
+        <module>bizauthsaml-sp</module>
+        <module>bizauthsaml-idp</module>
+        <module>bizauthsaml-spclient</module>
+        <module>bizauthoauth-authz</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>shibboleth</id>
+            <name>shibboleth</name>
+            <url>https://build.shibboleth.net/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>maven-xwiki</id>
+            <name>externals</name>
+            <url> https://maven.xwiki.org/externals/</url>
+        </repository>
+        <!-- 3rd Party Libs -->
+        <repository>
+            <id>external</id>
+            <name>3rd party libraries</name>
+            <url>file://${project.basedir}/libs</url>
+        </repository>
+    </repositories>
+</project>

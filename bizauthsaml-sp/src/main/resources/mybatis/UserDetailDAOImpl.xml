@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bizflow.auth.saml.dao.UserDetailDAO">
+    <select id="selectUserDetail" parameterType="String" resultType="com.bizflow.auth.saml.model.UserDetailVO">
+        SELECT u.userId
+                ,u.loginId
+                ,u.name
+                ,u.empCode
+                ,u.deptId
+                ,u.deptName
+                ,(SELECT titleName FROM title a WHERE a.titleId = u.titleId) AS titleName
+                ,u.eMail
+                ,u.phone
+                ,u.dob
+                ,CASE WHEN u.lockflag = 1 THEN 'false'
+                      ELSE 'true'
+                   END AS active
+        FROM userobj u
+        WHERE loginid_cs = #{userId}
+          AND status &lt;&gt; 4
+    </select>
+</mapper>

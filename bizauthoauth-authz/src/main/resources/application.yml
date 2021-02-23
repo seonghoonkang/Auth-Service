@@ -1,0 +1,98 @@
+application:
+  version: 1.2.1
+  title: bizflow oAuth2 - Authorization server
+spring:
+  profiles:
+    active: dev
+  jmx:
+    enabled: false
+
+--- #dev configure
+server:
+  port: 8787
+  servlet:
+    context-path: /bizauthoauth-authz
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@authentication.bizflow.com:1521/orcl.authentication.bizflow.com
+    username: authuser
+    password: St1ceqef
+    test-while-idle: true
+    auto-commit: false
+    connection-test-query: SELECT 1
+  flyway:
+    validate-on-migrate: false
+    table: OAUTH_HISTORY
+    baseline-on-migrate: true
+  velocity:
+    check-template-location: false
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+
+logging:
+  level:
+    root: debug
+    com.bizflow.auth.oauth2: DEBUG
+    org.springframework.security: DEBUG
+
+oauth-server:
+  approval-expiry-seconds: 31104000 # approval must last as long as the refresh token (12 months)
+  refresh-token-validaity-seconds: 31104000 #12 months
+  access-token-validity-seconds: 15552000 # 6 months
+  username: type2-loginid
+  password: type2-password
+
+cron:
+  node-cron-job-responsible: true
+  expression: 0 0/15 * * * ?
+
+--- #dev configure
+server:
+  port: 8888
+  servlet:
+    context-path: /bizauthoauth-authz
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521/orcl.authentication.bizflow.com
+    username: authuser
+    password: St1ceqef
+    test-while-idle: true
+    auto-commit: false
+    connection-test-query: SELECT 1
+  flyway:
+    validate-on-migrate: false
+    table: OAUTH_HISTORY
+    baseline-on-migrate: true
+  velocity:
+    check-template-location: false
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+
+logging:
+  level:
+    root: debug
+    com.bizflow.auth.oauth2: DEBUG
+    org.springframework.security: DEBUG
+
+oauth-server:
+  approval-expiry-seconds: 31104000 # approval must last as long as the refresh token (12 months)
+  refresh-token-validaity-seconds: 31104000 #12 months
+  access-token-validity-seconds: 15552000 # 6 months
+  username: type2-loginid
+  password: type2-password
+
+cron:
+  node-cron-job-responsible: true
+  expression: 0 0/15 * * * ? #Expired token schedule function, every 15min

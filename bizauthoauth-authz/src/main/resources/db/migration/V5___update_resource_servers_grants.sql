@@ -1,0 +1,4 @@
+--
+-- We want to prevent open redirect with resource servers
+--
+--

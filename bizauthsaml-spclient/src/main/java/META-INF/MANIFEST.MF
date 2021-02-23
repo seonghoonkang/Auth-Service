@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: jackson-annotations-2.9.0.jar java-jwt-3.5.0.jar jackson-cor
+ e-2.8.0.jar jackson-databind-2.9.9.jar commons-codec-1.11.jar
+

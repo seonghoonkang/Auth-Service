@@ -1,0 +1,15 @@
+# Created at 2021-01-29T14:23:29.335
+WARNING: An illegal reflective access operation has occurred
+
+# Created at 2021-01-29T14:23:29.335
+WARNING: Illegal reflective access by org.bouncycastle.jcajce.provider.drbg.DRBG (file:/Users/paulkang/.m2/repository/org/bouncycastle/bcprov-ext-jdk15on/1.60/bcprov-ext-jdk15on-1.60.jar) to constructor sun.security.provider.Sun()
+
+# Created at 2021-01-29T14:23:29.336
+WARNING: Please consider reporting this to the maintainers of org.bouncycastle.jcajce.provider.drbg.DRBG
+
+# Created at 2021-01-29T14:23:29.336
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+
+# Created at 2021-01-29T14:23:29.336
+WARNING: All illegal access operations will be denied in a future release
+
