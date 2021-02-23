@@ -1,15 +1,17 @@
-Bizflow Saml
+Authentication Server Sample
 ======
 
 Spec
 -----
 * JDK 1.8
 * Maven 3.6.1
+* Spring boot
+* Spring SAML2
+* Spring oAuth2
 
 Setup
 ------
 * Project 폴더를 생성합니다.
-* git clone https://[본인계정]@bitbucket.org/bizflowrepo/bizflowsaml.git
 * Intellij 를 실행하여 Project를 Open 합니다.
 * Intellij에서 프로젝트 소스에서 오류가 날 경우 Lombok Plug-in을 다음의 링크를 참조하여 설치해야 합니다.<br/>
 
